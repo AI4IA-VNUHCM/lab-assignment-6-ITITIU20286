@@ -15,7 +15,33 @@ Ex:
 
 void Ex3(char *str){
 	//Your codes here
-	
+	int len = strlen(str);
+	int longest = 1;
+	int shortest = 99;
+	int n, m;
+	int count = 0;
+	for (int i = 0; i <= len; ++i){
+		if(str[i] == ' ' || str[i] == '\0'){
+			if(count <shortest){
+				m = i;
+				shortest = count;
+			}
+			else if (count > longest){
+				longest = count;
+				n = i;
+			}
+			count = 0;
+		}
+		else count ++;
+	}
+	printf("Shortest word: ");
+	for (int i = m - shortest; i <= m - 1; ++i) {
+		printf("%c",str[i]);
+	}
+	printf("\nLongest word: ");
+	for (int i = n -longest; i <= n - 1; ++i) {
+		printf("%c",str[i]);
+	}
 }
 
 int main(int argc, char *argv[]) {
